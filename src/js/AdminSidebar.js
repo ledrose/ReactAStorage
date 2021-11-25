@@ -1,6 +1,7 @@
 import React from 'react'
 import '../css/adminSidebar.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import AdminContentBase from './AdminContentBase';
 
 function AdminSidebar() {
     return (
@@ -14,6 +15,9 @@ function AdminSidebar() {
                     <li><a href='/roles' id = "roles">Роли</a></li>
                 </ul>
             </aside>
+            <div className = "container-for-content">
+                <AdminContentBase/>
+            </div>
         </div>
     );
 }

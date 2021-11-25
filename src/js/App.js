@@ -7,6 +7,7 @@ import '../css/App.css';
 import Main from './Main';
 import Login from './Login';
 import AdminWelcome from './AdminWelcome';
+import AdminContentBase from './AdminContentBase';
 
 
 function App() {
@@ -17,7 +18,8 @@ function App() {
             <Routes>
               <Route path="/"  element={<Main />}/>
               <Route path="/login" element={<Login/>}/>
-              <Route path="/admin" element={<AdminWelcome />}></Route>
+              <Route path="/admin" element={<AdminWelcome/>}>
+              </Route>
             </Routes>
           </Router>
         </>
