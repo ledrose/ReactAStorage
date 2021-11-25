@@ -1,0 +1,114 @@
+import React from 'react';
+import 'whatwg-fetch';
+
+//class="nav-menu-sign-up ul-item"
+
+import './Navbar.js';
+
+
+export default class BossTable extends React.Component {
+
+constructor(props) {
+    super(props);
+    this.state = {
+        boss: {}
+    };
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+}
+
+
+
+componentDidMount() {
+    this.fetchData('http://bfs-astorage.somee.com/api/v1/Token');
+}
+
+
+fetchData = (url) => {
+
+    fetch(url)
+        .then(response => {
+            console.log(response);
+            if (response.ok) {
+                return response.json();
+            }
+        })
+        .then((data) => {
+            console.log(data);
+            this.setState(() => {
+                return {boss: data}
+            });
+        })
+        .catch(function (error) {
+            console.log(error);
+        });
+};
+
+
+handleChange = (event) => {
+    let value = event.target.value;
+
+
+
+    this.setState({
+        boss:
+            {
+                email : "admin@mail.ru",
+                password: "Admin_1"
+            }
+
+    });
+
+};
+
+
+handleSubmit = (event) => {
+    event.preventDefault();
+
+    const {boss}  = this.state;
+
+    let url = 'http://bfs-astorage.somee.com/api/v1/Token';
+
+
+    let fetchData = {
+        method: 'POST',
+        body: boss,
+        headers: new Headers()
+    };
+
+
+    fetch(url, fetchData)
+    .then( response => {
+        console.log("************Response*****************");
+        this.fetchData(url);
+
+        if(response.status.code === 404){
+            console.log("Chyba: Objekt nenalezen.");
+        }
+        
+
+    })
+
+
+};
+
+render() {
+    const {boss}  = this.state;
+    if (!boss) {
+        return <div>Loading...</div>
+    }
+
+    console.log(boss);
+    return (
+        <div>
+           <form id="formular" onSubmit={this.handleSubmit}>
+                <label>
+                    Name:
+                    <input type="text" required value={boss.nazev} onChange={this.handleChange} />
+                    </label>
+                    <input type="submit"  placeholder='Send message'/>
+            </form>
+        </div>
+    );
+}
+}

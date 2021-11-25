@@ -1,0 +1,54 @@
+
+
+.container__content__for-login {
+  background: white;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  border-radius: 7px;
+  border: 15px solid #414653;;
+  max-width: fit-content;
+  font-size: 20px;
+}
+.container__content__for-login__field {
+    padding: 30px;
+}
+.form-group {
+    text-align: left;
+    display: flex;
+    padding-bottom: 10px;
+    padding-top: 10px;
+}
+
+.login-input-main__input {
+    margin-left: 20px;
+    min-width: 200px;
+}
+.submit-login {
+    margin-top: 30px;
+    display: inline-block;
+    max-width: 100px;
+    background: #565d6e;
+    padding: 5px 20px;
+    font-size: 20px;
+    border-radius: 7px;
+    border: none;
+    color: #ffffff;
+}
+
+.submit-login:hover {
+    background: #20232a;
+    color: #61dafb;
+    transition: all 0.2s ease-out;
+}
+
+@media screen and (max-width: 772px) {
+    .form-group {
+        flex-wrap: wrap;
+    }
+    .form-group:first-child {
+        flex: 1 1 20%;
+    }
+    .login-input-main__input {
+        margin-left: 0;
+    }
+}

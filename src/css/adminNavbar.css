@@ -1,0 +1,52 @@
+
+.container-navbar-admin {
+    background-color: #20232a;
+    position: fixed;
+    top: 0;
+    right: 0;
+  }
+  
+  .nav-menu-admin {
+    margin: 0 !important;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    list-style-type: none;
+    display: flex;
+    justify-content: right;
+    width: 100%;
+  }
+  
+  /*-----Single links-----*/
+  
+  .navbar-admin__back {
+    font-size: 28px;
+    padding-left: 28px;
+    text-decoration: none;
+    text-align: center;
+    color: #ffffff;
+  }
+  
+  .nav-menu-account {
+    padding-right: 28px !important;
+    text-decoration: none;
+    text-align: center;
+    font-size: 20px;
+    padding: 0;
+    color: #ffffff;
+  }
+  .nav-menu-account:hover, .navbar-admin__back:hover, .fas.fa-user:hover {
+    color: #61dafb;
+    transition: all 0.2s ease-out;
+  }
+  .fas.fa-user {
+    font-size: 20px;
+    color: #ffffff;
+    margin-right: 7px;
+  }
+  /*Hidden icon when screen is wide enough*/
+  .menu-icon {
+    display: none;
+  }
+  .fa-bars {
+    color: #fff;
+  }
