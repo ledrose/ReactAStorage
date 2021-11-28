@@ -2,21 +2,7 @@ import React from 'react'
 import '../css/adminSidebar.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import AdminFiles from './AdminFiles';
-
-var data = [
-    {id: 1, whenAdd: '27/11/2021', whoAdd: 'alili'},
-    {id: 2, whenAdd: '27/11/2021', whoAdd: 'alili'},
-    {id: 3, whenAdd: '27/11/2021', whoAdd: 'alili'},
-    {id: 4, whenAdd: '27/11/2021', whoAdd: 'alili'},
-    {id: 5, whenAdd: '27/11/2021', whoAdd: 'alili'},
-    {id: 6, whenAdd: '27/11/2021', whoAdd: 'alili'},
-    {id: 7, whenAdd: '27/11/2021', whoAdd: 'alili'},
-    {id: 8, whenAdd: '27/11/2021', whoAdd: 'alili'},
-    {id: 9, whenAdd: '27/11/2021', whoAdd: 'alili'},
-    {id: 10, whenAdd: '27/11/2021', whoAdd: 'alili'},
-    {id: 11, whenAdd: '27/11/2021', whoAdd: 'alili'},
-    {id: 12, whenAdd: '27/11/2021', whoAdd: 'alili'}
-  ];
+import { Outlet } from 'react-router-dom';
 
 function AdminSidebar() {
     return (
@@ -31,10 +17,12 @@ function AdminSidebar() {
                 </ul>
             </aside>
             <div className = "container-for-content">
-                <AdminFiles data={data}/>
+                <Outlet/>
             </div>
         </div>
     );
 }
 
 export default AdminSidebar
+
+/*  <AdminFiles data={data}/> */

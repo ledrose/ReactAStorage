@@ -7,6 +7,24 @@ import '../css/App.css';
 import Main from './Main';
 import Login from './Login';
 import AdminWelcome from './AdminWelcome';
+import AdminContentBase from './AdminContentBase'
+import AdminFiles from './AdminFiles';
+
+var data = [
+  {id: 1, name: 'aaaa', whenAdd: '27/11/2021', whoAdd: 'alili'},
+  {id: 2, name: 'aaaa', whenAdd: '27/11/2021', whoAdd: 'alili'},
+  {id: 3, name: 'aaaa', whenAdd: '27/11/2021', whoAdd: 'alili'},
+  {id: 4, name: 'aaaa', whenAdd: '27/11/2021', whoAdd: 'alili'},
+  {id: 5, name: 'aaaa', whenAdd: '27/11/2021', whoAdd: 'alili'},
+  {id: 6, name: 'aaaa', whenAdd: '27/11/2021', whoAdd: 'alili'},
+  {id: 7, name: 'aaaa', whenAdd: '27/11/2021', whoAdd: 'alili'},
+  {id: 8, name: 'aaaa', whenAdd: '27/11/2021', whoAdd: 'alili'},
+  {id: 9, name: 'aaaa', whenAdd: '27/11/2021', whoAdd: 'alili'},
+  {id: 10, name: 'aaaa', whenAdd: '27/11/2021', whoAdd: 'alili'},
+  {id: 11, name: 'aaaa', whenAdd: '27/11/2021', whoAdd: 'alili'},
+  {id: 12, name: 'aaaa', whenAdd: '27/11/2021', whoAdd: 'alili'}
+];
+
 
 function App() {
   
@@ -16,8 +34,12 @@ function App() {
             <Routes>
               <Route path="/"  element={<Main />}/>
               <Route path="/login" element={<Login/>}/>
-              <Route path="/admin/welcome" element={<AdminWelcome/>}/>
-              <Route path="/admin/files" element={<AdminWelcome/>}/>
+              <Route path="/admin" element={<AdminWelcome/>}>
+                <Routes>
+                  <Route path="welcome" element={<AdminContentBase/>}/>
+                  <Route path="files" element={<AdminFiles data={data}/>}/>
+                </Routes>
+              </Route>
             </Routes>
           </Router>
         </>

@@ -7,6 +7,14 @@ import '../../node_modules/react-bootstrap-table/css/react-bootstrap-table.css';
 
 export default class AdminFiles extends Component {
 
+  constructor(props) {
+    super(props);
+
+    this.options = {
+      defaultSortName: 'name',  // default sort column name
+      defaultSortOrder: 'desc'  // default sort order
+    };
+  }
     render() {
       return (
         <div className = 'container-table'>
@@ -17,7 +25,7 @@ export default class AdminFiles extends Component {
             <TableHeaderColumn isKey filter={ { type: 'TextFilter', delay: 1000 } } dataField='id' width='10%'>
               ID
             </TableHeaderColumn>
-            <TableHeaderColumn dataField='img' width='10%'>
+            <TableHeaderColumn filter={ { type: 'TextFilter', delay: 1000 } } dataField='name' width='10%'>
               Файл
             </TableHeaderColumn>
             <TableHeaderColumn filter={ { type: 'TextFilter', delay: 1000 } } width='34%' dataField='whenAdd'>
