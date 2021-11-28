@@ -9,20 +9,35 @@ import Login from './Login';
 import AdminWelcome from './AdminWelcome';
 import AdminContentBase from './AdminContentBase'
 import AdminFiles from './AdminFiles';
+import AdminUsers from './AdminUsers';
 
-var data = [
-  {id: 1, name: 'aaaa', whenAdd: '27/11/2021', whoAdd: 'alili'},
-  {id: 2, name: 'aaaa', whenAdd: '27/11/2021', whoAdd: 'alili'},
-  {id: 3, name: 'aaaa', whenAdd: '27/11/2021', whoAdd: 'alili'},
-  {id: 4, name: 'aaaa', whenAdd: '27/11/2021', whoAdd: 'alili'},
-  {id: 5, name: 'aaaa', whenAdd: '27/11/2021', whoAdd: 'alili'},
-  {id: 6, name: 'aaaa', whenAdd: '27/11/2021', whoAdd: 'alili'},
-  {id: 7, name: 'aaaa', whenAdd: '27/11/2021', whoAdd: 'alili'},
-  {id: 8, name: 'aaaa', whenAdd: '27/11/2021', whoAdd: 'alili'},
-  {id: 9, name: 'aaaa', whenAdd: '27/11/2021', whoAdd: 'alili'},
-  {id: 10, name: 'aaaa', whenAdd: '27/11/2021', whoAdd: 'alili'},
-  {id: 11, name: 'aaaa', whenAdd: '27/11/2021', whoAdd: 'alili'},
-  {id: 12, name: 'aaaa', whenAdd: '27/11/2021', whoAdd: 'alili'}
+var dataFiles = [
+  {id: 1, name: 'aaaa', whoAdd: 'alili'},
+  {id: 2, name: 'aaaa', whoAdd: 'alili'},
+  {id: 3, name: 'aaaa', whoAdd: 'alili'},
+  {id: 4, name: 'aa6ryuu', whoAdd: 'alili'},
+  {id: 5, name: 'aaaa', whoAdd: 'alili'},
+  {id: 6, name: 'aaaa', whoAdd: 'alili'},
+  {id: 7, name: 'aaaa', whoAdd: 'alili'},
+  {id: 8, name: 'aaaa', whoAdd: 'alili'},
+  {id: 9, name: 'aaaa', whoAdd: 'alili'},
+  {id: 10, name: 'aaaa', whoAdd: 'alili'},
+  {id: 11, name: 'aaaa', whoAdd: 'alili'},
+  {id: 12, name: 'aaaa', whoAdd: 'alili'}
+];
+var dataUsers = [
+  {idUser: 1, nameUser: 'aaaa', roleUser: 'alili'},
+  {idUser: 2, nameUser: 'aaaa', roleUser: 'alili'},
+  {idUser: 3, nameUser: 'aaaa', roleUser: 'alili'},
+  {idUser: 4, nameUser: 'aa6ryuu', roleUser: 'alili'},
+  {idUser: 5, nameUser: 'aaaa', roleUser: 'alili'},
+  {idUser: 6, nameUser: 'aaaa', roleUser: 'alili'},
+  {idUser: 7, nameUser: 'aaaa', roleUser: 'alili'},
+  {idUser: 8, nameUser: 'aaaa', roleUser: 'alili'},
+  {idUser: 9, nameUser: 'aaaa', roleUser: 'alili'},
+  {idUser: 10, nameUser: 'aaaa', roleUser: 'alili'},
+  {idUser: 11, nameUser: 'aaaa', roleUser: 'alili'},
+  {idUser: 12, nameUser: 'aaaa', roleUser: 'alili'}
 ];
 
 
@@ -35,10 +50,9 @@ function App() {
               <Route path="/"  element={<Main />}/>
               <Route path="/login" element={<Login/>}/>
               <Route path="/admin" element={<AdminWelcome/>}>
-                <Routes>
                   <Route path="welcome" element={<AdminContentBase/>}/>
-                  <Route path="files" element={<AdminFiles data={data}/>}/>
-                </Routes>
+                  <Route path="files" element={<AdminFiles data={dataFiles}/>}/>
+                  <Route path="users" element={<AdminUsers data={dataUsers}/>}/>
               </Route>
             </Routes>
           </Router>

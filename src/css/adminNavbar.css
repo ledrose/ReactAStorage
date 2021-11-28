@@ -2,16 +2,19 @@
 .container-navbar-admin {
     background-color: #20232a;
     position: fixed;
+    padding-top: 10px;
+    padding-bottom: 10px;
     top: 0;
     right: 0;
   }
   
   .nav-menu-admin {
+    display: flex;
     margin: 0 !important;
     padding-top: 15px;
     padding-bottom: 15px;
     list-style-type: none;
-    display: flex;
+    display: none;
     justify-content: right;
     width: 100%;
   }
@@ -26,7 +29,7 @@
     color: #ffffff;
   }
   
-  .nav-menu-account {
+  .nav-menu-li, .nav-menu-account {
     padding-right: 28px !important;
     text-decoration: none;
     text-align: center;

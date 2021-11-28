@@ -1,17 +1,17 @@
-import React, {Component} from 'react';
+import React from 'react';
 import '../css/adminFiles.css';
 import {BootstrapTable, TableHeaderColumn} from 'react-bootstrap-table';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../../node_modules/react-bootstrap-table/css/react-bootstrap-table.css';
 
 
-export default class AdminFiles extends React.Component {
+export default class AdminUsers extends React.Component {
 
   constructor(props) {
     super(props);
 
     this.options = {
-      defaultSortName: 'id',  // default sort column name
+      defaultSortName: 'idUser',  // default sort column name
       defaultSortOrder: 'desc'  // default sort order
     };
   }
@@ -19,17 +19,17 @@ export default class AdminFiles extends React.Component {
       return (
         <div className = 'col-md-12 container-table containe-fluid'>
             <div className = "name__all-files" >
-                <b>Все файлы</b>
+                <b>Пользователи</b>
             </div>
           <BootstrapTable trClassName='td-admin-files' height='460' hover data={this.props.data} options={ this.options } scrollTop={ 'Bottom' }>
-            <TableHeaderColumn columnClassName='responsiveColumn' isKey filter={ { type: 'TextFilter', delay: 1000 } } dataField='id' width='26%' dataSort>
+            <TableHeaderColumn columnClassName='responsiveColumn' isKey filter={ { type: 'TextFilter', delay: 1000 } } dataField='idUser' width='26%' dataSort>
               ID
             </TableHeaderColumn>
-            <TableHeaderColumn columnClassName='responsiveColumn' filter={ { type: 'TextFilter', delay: 1000 } } dataField='name' width='37%'>
-              Файл
+            <TableHeaderColumn columnClassName='responsiveColumn' filter={ { type: 'TextFilter', delay: 1000 } } dataField='nameUser' width='37%'>
+              Имя пользователя
             </TableHeaderColumn>
-            <TableHeaderColumn columnClassName='responsiveColumn' filter={ { type: 'TextFilter', delay: 1000 } }  width='37%' dataField='whoAdd'>
-              Пользователь
+            <TableHeaderColumn columnClassName='responsiveColumn' filter={ { type: 'TextFilter', delay: 1000 } }  width='37%' dataField='roleUser'>
+              Роли пользователя
             </TableHeaderColumn>
           </BootstrapTable>
         </div>
