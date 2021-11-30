@@ -13,7 +13,7 @@ export default class Search extends Component {
                     <div className = 'row justify-content-center' >
                         <div className = "col-xl-5 col-lg-5 col-md-5 col-sm-10 container__content__for-search">
                             <div className = "container__content__for-search__text">
-                                <p>Введи текст задания и получи ответ</p>
+                                <p>Введи текст задания</p>
                             </div>
                             <Form className="d-flex text__search" id="searchText">
                                     <FormControl

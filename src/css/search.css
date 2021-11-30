@@ -13,10 +13,12 @@
     margin-bottom: 0 !important;
 }
 .container__content__for-search {
-    margin: 20px;
+  margin: 20px;
   background: white;
   padding-left: 0 !important;
   padding-right: 0 !important;
+  min-width: 400px;
+  min-height: 200px;
   height: auto;
   border-radius: 7px;
   border: 10px solid #464545;
