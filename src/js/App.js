@@ -10,6 +10,7 @@ import AdminWelcome from './AdminWelcome';
 import AdminContentBase from './AdminContentBase'
 import AdminFiles from './AdminFiles';
 import AdminUsers from './AdminUsers';
+import Search from './Search';
 
 var dataFiles = [
   {id: 1, name: 'aaaa', whoAdd: 'alili'},
@@ -48,6 +49,7 @@ function App() {
           <Router>
             <Routes>
               <Route path="/"  element={<Main />}/>
+              <Route path="/search" element = {<Search/>}/>
               <Route path="/login" element={<Login/>}/>
               <Route path="/admin" element={<AdminWelcome/>}>
                   <Route path="welcome" element={<AdminContentBase/>}/>

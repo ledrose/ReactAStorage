@@ -1,0 +1,84 @@
+.for_link {
+    margin-left: 5px  !important;
+}
+.container__content {
+  min-height: 91vh;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  background: url(../images/connectwork.jpg) repeat;
+  background-size: 100% auto;
+}
+.container__content__for-search__text p {
+    margin-bottom: 0 !important;
+}
+.container__content__for-search {
+    margin: 20px;
+  background: white;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  height: auto;
+  border-radius: 7px;
+  border: 10px solid #464545;
+}
+
+.container__content__for-search__text {
+  background: #cdd7e0;
+  padding: 10px;
+  width: auto;
+  min-height: fit-content;
+  display: block;
+  font-size: 24px;
+  color: #464545;
+}
+.text__search {
+    position: relative;
+    min-height: 50px;
+    margin: 20px;
+    margin-top: 25px;
+}
+.form__search {
+    border: 1px solid #464545;
+    color: #ffffff;
+    background-color: #cdd7e0;
+  }
+  
+.container__content__for-download__text:hover {
+  transition: 0.15s ease-in-out;
+  background: #e6e9ee;
+}
+.container__content__for-download__button:hover {
+  transition: 0.15s ease-in-out;
+  background: #f5f7f8;
+}
+
+
+/*------------------media------------------------------*/
+@media screen and (max-width: 1200px) {
+  .container__content {
+    background-size: auto 100%;
+  }
+}
+
+@media screen and (max-width: 2000px) {
+  .container__content__for-download {
+      max-width: 500px !important;
+    }
+}
+
+@media screen and (max-width: 772px) {
+.container__content {
+  z-index: 0;
+}
+}
+@media screen and (max-width: 568px) {
+  .container__content__for-download {
+      height: 300px;
+    }
+  .container__content__for-download__text {
+      font-size: 16px;
+  } 
+  .container__content__for-download__button {
+      font-size: 16px;
+    }
+}
