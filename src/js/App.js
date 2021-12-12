@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route, Routes} from 'react-router-dom';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../css/App.css';
-import Cookies, {Cookie} from 'universal-cookie';
+import Cookies from 'universal-cookie';
 
 import Main from './Main';
 import Login from './Login';
@@ -17,9 +17,21 @@ import AdminLogs from './AdminLogs';
 import AdminRoles from './AdminRoles';
 import SearchArea from './SearchArea';
 
-const cookies = new Cookies();
-export const getToken = ()=>{return cookies.get("token")};
-export const setToken = (newToken)=>{cookies.set("token",newToken,{path:'/',secure:true,sameSite: "lax"});};
+class Token {
+  constructor() {
+    this.cookies = new Cookies();
+    this.updateToken();
+  }
+  token=null;
+  cookies=null;
+  updateToken = ()=>{this.token=this.cookies.get("token")};
+  setToken = (newToken)=>{
+    this.cookies.set("token",newToken,{path:'/',secure:true,sameSite: "lax"});
+    this.updateToken();
+  };
+  removeToken = ()=>{this.cookies.remove("token")};
+}
+export let curToken = new Token();
 export const mainLink = "https://bfs-astorage.somee.com/api/v1.0";
 
 var dataFiles = [
