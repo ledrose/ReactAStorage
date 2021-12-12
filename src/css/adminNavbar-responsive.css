@@ -47,9 +47,6 @@
         color: #61dafb;
         transition: all 0.2s ease-out;
     }
-    .nav-menu-admin a:hover {
-        text-decoration: none;
-    }
     .ul-item {
       text-align: center;
       width: 100vw;

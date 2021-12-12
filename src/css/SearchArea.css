@@ -1,0 +1,44 @@
+.container-table {
+    max-width: 65vw;
+}
+.react-bs-table-bordered {
+    border-radius: 0 !important;
+    border: 3px solid #282c34 !important;
+    background: #7f8eb1;
+}
+
+.td-admin-files {
+    color: #ffffff;
+    border: 1px solid #282c34 !important;
+}
+.table-bordered th{
+    border-left: 2px #282c34 !important;
+}
+
+.name__all-files {
+    margin-top: 20px;
+    font-size: 28px;
+    color: #282c34;
+    text-align: center;
+    margin-bottom: 25px;
+}
+.filter.text-filter.form-control {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    padding: 5px !important;
+    font-style: italic;
+    font-size: 16px;
+    max-width: fit-content;
+}
+
+@media screen and (max-width: 768px) {
+    .container-table {
+        max-width: 90vw;
+    }
+    .react-bs-table-bordered {
+        margin-right: 0 !important;
+    }
+    .name__all-files {
+        margin-right: 0;
+    }
+}

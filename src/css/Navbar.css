@@ -44,10 +44,12 @@
 }
 
 /*Hidden icon when screen is wide enough*/
+
 .menu-icon {
   display: none;
 }
 .fa-bars {
   color: #fff;
+  font-size: 2rem;
 }
 

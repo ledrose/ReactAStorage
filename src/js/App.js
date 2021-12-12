@@ -6,11 +6,20 @@ import '../css/App.css';
 
 import Main from './Main';
 import Login from './Login';
+
 import AdminWelcome from './AdminWelcome';
 import AdminContentBase from './AdminContentBase'
 import AdminFiles from './AdminFiles';
 import AdminUsers from './AdminUsers';
-import Search from './Search';
+import AdminEvents from './AdminEvents';
+import AdminLogs from './AdminLogs';
+import AdminRoles from './AdminRoles';
+
+import SearchArea from './SearchArea';
+
+export let token=null;
+export const changeToken = (newToken)=>{token=newToken};
+export const mainLink = "https://bfs-astorage.somee.com/api/v1.0";
 
 var dataFiles = [
   {id: 1, name: 'aaaa', whoAdd: 'alili'},
@@ -40,22 +49,66 @@ var dataUsers = [
   {idUser: 11, nameUser: 'aaaa', roleUser: 'alili'},
   {idUser: 12, nameUser: 'aaaa', roleUser: 'alili'}
 ];
+var dataEvents = [
+  {idUser: 1, nameUser: 'aaaa', roleUser: 'alili'},
+  {idUser: 2, nameUser: 'aaaa', roleUser: 'alili'},
+  {idUser: 3, nameUser: 'aaaa', roleUser: 'alili'},
+  {idUser: 4, nameUser: 'aa6ryuu', roleUser: 'alili'},
+  {idUser: 5, nameUser: 'aaaa', roleUser: 'alili'},
+  {idUser: 6, nameUser: 'aaaa', roleUser: 'alili'},
+  {idUser: 7, nameUser: 'aaaa', roleUser: 'alili'},
+  {idUser: 8, nameUser: 'aaaa', roleUser: 'alili'},
+  {idUser: 9, nameUser: 'aaaa', roleUser: 'alili'},
+  {idUser: 10, nameUser: 'aaaa', roleUser: 'alili'},
+  {idUser: 11, nameUser: 'aaaa', roleUser: 'alili'},
+  {idUser: 12, nameUser: 'aaaa', roleUser: 'alili'}
+];
+var dataLogs = [
+  {idUser: 1, nameUser: 'aaaa', roleUser: 'alili'},
+  {idUser: 2, nameUser: 'aaaa', roleUser: 'alili'},
+  {idUser: 3, nameUser: 'aaaa', roleUser: 'alili'},
+  {idUser: 4, nameUser: 'aa6ryuu', roleUser: 'alili'},
+  {idUser: 5, nameUser: 'aaaa', roleUser: 'alili'},
+  {idUser: 6, nameUser: 'aaaa', roleUser: 'alili'},
+  {idUser: 7, nameUser: 'aaaa', roleUser: 'alili'},
+  {idUser: 8, nameUser: 'aaaa', roleUser: 'alili'},
+  {idUser: 9, nameUser: 'aaaa', roleUser: 'alili'},
+  {idUser: 10, nameUser: 'aaaa', roleUser: 'alili'},
+  {idUser: 11, nameUser: 'aaaa', roleUser: 'alili'},
+  {idUser: 12, nameUser: 'aaaa', roleUser: 'alili'}
+];
+var dataRoles = [
+  {idUser: 1, nameUser: 'aaaa', roleUser: 'alili'},
+  {idUser: 2, nameUser: 'aaaa', roleUser: 'alili'},
+  {idUser: 3, nameUser: 'aaaa', roleUser: 'alili'},
+  {idUser: 4, nameUser: 'aa6ryuu', roleUser: 'alili'},
+  {idUser: 5, nameUser: 'aaaa', roleUser: 'alili'},
+  {idUser: 6, nameUser: 'aaaa', roleUser: 'alili'},
+  {idUser: 7, nameUser: 'aaaa', roleUser: 'alili'},
+  {idUser: 8, nameUser: 'aaaa', roleUser: 'alili'},
+  {idUser: 9, nameUser: 'aaaa', roleUser: 'alili'},
+  {idUser: 10, nameUser: 'aaaa', roleUser: 'alili'},
+  {idUser: 11, nameUser: 'aaaa', roleUser: 'alili'},
+  {idUser: 12, nameUser: 'aaaa', roleUser: 'alili'}
+];
 
 
 function App() {
-  
   return (
           <>
           <Router>
             <Routes>
               <Route path="/"  element={<Main />}/>
-              <Route path="/search" element = {<Search/>}/>
               <Route path="/login" element={<Login/>}/>
               <Route path="/admin" element={<AdminWelcome/>}>
                   <Route path="welcome" element={<AdminContentBase/>}/>
                   <Route path="files" element={<AdminFiles data={dataFiles}/>}/>
                   <Route path="users" element={<AdminUsers data={dataUsers}/>}/>
+                  <Route path="events" element={<AdminEvents data={dataEvents}/>}/>
+                  <Route path="logs" element={<AdminLogs data={dataLogs}/>}/>
+                  <Route path="roles" element={<AdminRoles data={dataRoles}/>}/>
               </Route>
+              <Route path="/search" element={<SearchArea/>} />
             </Routes>
           </Router>
         </>

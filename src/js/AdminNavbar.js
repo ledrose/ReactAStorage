@@ -12,14 +12,14 @@ function AdminNavbar() {
                 <div className="content-navbar-admin d-flex justify-content-between align-items-center">
                     <a href="../" className="navbar-admin__back">AStorage</a>
                     <div className = 'd-none d-md-block'>
-                        <a href="/account" className="nav-menu-account ul-item" id="account"><i class="fas fa-user"></i> Аккаунт </a>
+                        <a href="/account" className="nav-menu-account ul-item" id="account"><i class="fas fa-user"></i> YourName </a>
                     </div>
                     <div className = 'd-block d-md-none'>
                         <div className='menu-icon d-flex' onClick={handleClick}>
                             <i className={click ? 'fas fa-times' : 'fas fa-bars'}/>
                         </div>
                         <ul className={click ? 'nav-menu-admin active' : 'nav-menu-admin'}>
-                            <li><a href="/account" className="nav-menu-li ul-item" id="account"><i class="fas fa-user"></i> Аккаунт </a></li>
+                            <li><a href="/account" className="nav-menu-li ul-item" id="account"><i class="fas fa-user"></i> YourName </a></li>
                             <li><a href='/admin/files' className="nav-menu-li ul-item" id = "files">Библиотека</a></li>
                             <li><a href='/admin/users' className="nav-menu-li ul-item" id = "users">Пользователи</a></li>
                             <li><a href='/admin/events' className="nav-menu-li ul-item" id = "events">События</a></li>
