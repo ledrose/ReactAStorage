@@ -3,7 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Navbar from './Navbar';
 import '../css/Login.css';
 import '../css/Main.css';
-import {mainLink,token,changeToken} from './App';
+import {mainLink,getToken,setToken} from './App';
 
 /*-----------------------------------------------------*/
 
@@ -11,12 +11,13 @@ export default class Login extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            formResponse: null,
+            formResponse: getToken(),
         }
     }
     submitForm = async (e) => {
         e.preventDefault();
         var body = {"email":this.login.value,"password":this.pass.value};
+        console.log(getToken());
         let response = await fetch(mainLink+"/Token",{
             method:"POST",
             headers:{
@@ -25,8 +26,9 @@ export default class Login extends React.Component {
             body: JSON.stringify(body),
         });
         if (response.status===200) {
-            changeToken('Bearer: '+ await response.text());
-            this.setState({formResponse: token});
+            setToken('Bearer: '+ await response.text());
+            this.setState({formResponse: getToken()});
+            console.log(getToken());
         }
         else {
             let errorBody = await response.json();
