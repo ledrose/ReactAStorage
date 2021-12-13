@@ -16,6 +16,7 @@ import AdminEvents from './AdminEvents';
 import AdminLogs from './AdminLogs';
 import AdminRoles from './AdminRoles';
 import SearchArea from './SearchArea';
+import DragAndDrop from './DragAndDrop';
 
 class Token {
   constructor() {
@@ -108,11 +109,12 @@ var dataRoles = [
 
 function App() {
   return (
-          <>
+        <div>
           <Router>
             <Routes>
               <Route path="/"  element={<Main />}/>
               <Route path="/login" element={<Login/>}/>
+              <Route path="/dragTest" element={<DragAndDrop/>}/>
               <Route path="/admin" element={<AdminWelcome/>}>
                   <Route path="welcome" element={<AdminContentBase/>}/>
                   <Route path="files" element={<AdminFiles data={dataFiles}/>}/>
@@ -124,7 +126,7 @@ function App() {
               <Route path="/search" element={<SearchArea/>} />
             </Routes>
           </Router>
-        </>
+        </div>
   )
 }
 

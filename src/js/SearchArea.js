@@ -10,7 +10,7 @@ import '../../node_modules/react-bootstrap-table/css/react-bootstrap-table.css';
 export default class ContentMain extends Component {
     render() {
         return (
-            <>
+            <div>
                 <Navbar />
                 <div className = 'col-md-12 container-table containe-fluid'>
                     <div className = "name__all-files" >
@@ -28,7 +28,7 @@ export default class ContentMain extends Component {
                         </TableHeaderColumn>
                     </BootstrapTable>
                 </div>
-            </>
+            </div>
         ) 
     }
 }
