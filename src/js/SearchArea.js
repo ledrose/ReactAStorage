@@ -89,7 +89,7 @@ export default class ContentMain extends Component {
     imageFormatter(cell, row){
        // var table = document.getElementById('table');
        // var tr = table.children[row*3 + cell];
-        var id = document.getElementsByTagName('td')[(row)*3 + cell - 1];
+        // var id = document.getElementsByTagName('td')[(row)*3 + cell - 1];
         return '<img class="img-fluid img-thumbnail" src="https://bfs-astorage.somee.com/api/v1/Files/' + cell+ '"/>';
       }
 

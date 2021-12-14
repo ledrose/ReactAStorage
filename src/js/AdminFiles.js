@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React from 'react';
 import '../css/adminFiles.css';
 import {BootstrapTable, TableHeaderColumn} from 'react-bootstrap-table';
 import 'bootstrap/dist/css/bootstrap.min.css';
