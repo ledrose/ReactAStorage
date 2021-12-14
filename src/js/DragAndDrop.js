@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import '../css/dragAndDrop.css';
 import { curToken, mainLink } from "./App";
 
@@ -19,7 +19,7 @@ export default class DragAndDrop extends React.Component {
       }
     })
     const responseBody= await response.json()
-    if (response.status==200) {
+    if (response.status===200) {
       console.log(responseBody);
     }
     else {

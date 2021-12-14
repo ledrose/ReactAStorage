@@ -15,10 +15,24 @@ export default class Login extends React.Component {
             logged: (curToken.token)?true:false,
         }
     }
+    getName = async () => {
+        var response= await fetch(mainLink+'/Account',{
+            method: "GET",
+            headers: {
+                'Content-Type': 'application/json;charset=utf-8',
+                'Authorization':curToken.token,
+            }
+        })
+        if (response.status===200) {
+            return (await response.json())['name'];
+        }
+        else {
+            throw Error("Failed to recieve user name")
+        }
+    }
     submitForm = async (e) => {
         e.preventDefault();
         var body = {"email":this.login.value,"password":this.pass.value};
-        // console.log(curToken.token);
         let response = await fetch(mainLink+"/Token",{
             method:"POST",
             headers:{
@@ -27,8 +41,9 @@ export default class Login extends React.Component {
             body: JSON.stringify(body),
         });
         if (response.status===200) {
-            curToken.setToken('Bearer: '+ await response.text());
-            this.setState({logged:true});
+            curToken.setToken('Bearer '+ await response.text())
+            curToken.setName(await this.getName())
+            this.setState({logged:true})
             // console.log(curToken.token);
         }
         else {

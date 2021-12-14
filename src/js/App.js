@@ -20,17 +20,32 @@ import DragAndDrop from './DragAndDrop';
 
 class Token {
   constructor() {
-    this.cookies = new Cookies();
-    this.updateToken();
+    this.cookies = new Cookies()
+    this.updateToken()
+    this.updateName()
   }
-  token=null;
-  cookies=null;
-  updateToken = ()=>{this.token=this.cookies.get("token")};
-  setToken = (newToken)=>{
-    this.cookies.set("token",newToken,{path:'/',secure:true,sameSite: "lax"});
-    this.updateToken();
+  token=null
+  cookies=null
+  name=null
+  setName = (newName) =>{
+    this.name=newName
+    this.cookies.set("name",newName,{path:'/',secure:true,sameSite: "lax"})
+  }
+  updateName = ()=>{
+    this.name=this.cookies.get("name")
+  }
+  updateToken = ()=>{
+    this.token=this.cookies.get("token")
   };
-  removeToken = ()=>{this.cookies.remove("token")};
+  setToken = (newToken)=>{
+    this.cookies.set("token",newToken,{path:'/',secure:true,sameSite: "lax"})
+    this.updateToken()
+  };
+  removeToken = ()=>{
+    this.cookies.remove("token")
+    this.token=null
+    this.name=null
+  };
 }
 export let curToken = new Token();
 export const mainLink = "https://bfs-astorage.somee.com/api/v1.0";
