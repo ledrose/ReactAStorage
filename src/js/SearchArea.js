@@ -10,29 +10,34 @@ import { curToken, mainLink } from './App';
 
 export default class ContentMain extends Component {
 
+
     constructor(props) {
         super(props);
         this.state={
             dataLoaded:false,
-            data: null
+            data: null,
+            total: 0
         }
     }
 
+    size = 0;
+    pageIndex = 0;
+
     componentDidMount() {
-        this.loadQuestionData(0,10)
+        this.loadQuestionData()
     }
-    buildRequestBody = (startIndex,length) => {
+    buildRequestBody = (startIndex,length,text) => {
         return JSON.stringify({
             "draw": 0,
             "start": startIndex,
             "length": length,
             "columns": [
               {
-                "name": "string",
+                "name": "text",
                 "searchable": true,
                 "orderable": true,
                 "search": {
-                  "value": "string",
+                  "value": text,
                   "regex": true
                 },
               },
@@ -50,19 +55,30 @@ export default class ContentMain extends Component {
           });
     }
 
-    loadQuestionData = async (startIndex,length) => {
+    loadQuestionData = async () => {
+
+        var filter = document.getElementById("text_filter")
+
+        var text ='';
+
+        if(filter!=null)
+            text=filter.value;
+
         var response = await fetch(mainLink+'/Files/Table',{
             method: "POST",
             headers: {
                 'Authorization': curToken.token,
                 'Content-Type': 'application/json;charset=utf-8',
             },
-            body: this.buildRequestBody(startIndex,length)
+            body: this.buildRequestBody(this.pageIndex,10,text)
         })
+
+        var resp = await response.json();
         if (response.status===200) {
             this.setState({
                 dataLoaded:true,
-                data: (await response.json())['data']
+                data: resp['data'],
+                total: resp['recordsFiltered']
             })
         }
         else {
@@ -70,7 +86,12 @@ export default class ContentMain extends Component {
         }
     }
 
-
+    imageFormatter(cell, row){
+       // var table = document.getElementById('table');
+       // var tr = table.children[row*3 + cell];
+        var id = document.getElementsByTagName('td')[(row)*3 + cell - 1];
+        return '<img class="img-fluid img-thumbnail" src="https://bfs-astorage.somee.com/api/v1/Files/' + cell+ '"/>';
+      }
 
     render() {
         return (
@@ -78,7 +99,13 @@ export default class ContentMain extends Component {
                 <Navbar />
                 <div className = 'col-md-12 container-table containe-fluid'>
                     <div className = "name__all-files" >
-                        <b>База данных</b>
+                        <b>Просмотр файлов</b>
+                    </div>
+                    <div><h1>{parseInt(this.state.total/10 + 1)}</h1></div>
+                    <div class="card text-black bg-wite">
+                    <div class="form-group">
+                      <label for="">Введите текст запроса  </label>
+                      <input type="text" name="" class="form-control" id="text_filter" onChange={() =>{ this.pageIndex = 0; this.componentDidMount()}} style={{padding:2}}/>
                     </div>
                     {/* {
                     (this.state.dataLoaded)
@@ -88,14 +115,22 @@ export default class ContentMain extends Component {
                         })
                         :null
                     } */}
-                    <BootstrapTable trClassName='td-admin-files' height='460' hover data={this.state.data} options={ this.options } scrollTop={ 'Bottom' }>
-                        <TableHeaderColumn columnClassName='responsiveColumn' isKey filter={ { type: 'TextFilter', delay: 1000 } } dataField='id' width='26%' dataSort>ID
+                    <BootstrapTable id="table" trClassName='table table-image' height='460' hover data={this.state.data} options={ this.options } scrollTop={ 'Bottom' }>
+                        <TableHeaderColumn columnClassName='col' isKey dataField='id' data width='26%' dataSort>ID
                         </TableHeaderColumn>
-                        <TableHeaderColumn columnClassName='responsiveColumn' filter={ { type: 'TextFilter', delay: 1000 } } dataField='fileName' width='37%'>Файл
+                        <TableHeaderColumn columnClassName='w-25' width='37%' dataField='id' dataFormat={this.imageFormatter}>Файл
                         </TableHeaderColumn>
-                        <TableHeaderColumn columnClassName='responsiveColumn' filter={ { type: 'TextFilter', delay: 1000 } }  width='37%' dataField='averageAnswers'>Пользователь
+                        <TableHeaderColumn columnClassName='col'  width='37%' dataField='user[userName]'>Пользователь
                         </TableHeaderColumn>
                     </BootstrapTable>
+                    <div class="row">
+                            {
+                                Array.from(Array(parseInt(this.state.total/10 + 1)).keys()).map((i)=>
+                                <input type="button" onClick={()=>{this.pageIndex=i*10; this.componentDidMount()}} value={i+1}/>
+                                )
+                            }
+                        </div>
+                    </div>
                 </div>
             </div>
         ) 
